@@ -66,30 +66,6 @@ The backend uses Django and Django Channels, with Daphne serving the ASGI applic
 * GitHub
 * Visual Studio Code
 
-## Project Structure
-
-
-CodeAlpha_ProjectManagementTool/
-│
-├── backend/
-│   ├── config/
-│   │   ├── asgi.py
-│   │   ├── settings.py
-│   │   └── ...
-│   ├── manage.py
-│   ├── requirements.txt
-│   └── ...
-│
-├── frontend/
-│   ├── package.json
-│   └── ...
-│
-├── .gitignore
-├── LICENSE
-└── README.md
-
-
-The structure is illustrative; your actual application may contain additional apps and files.
 
 ## Prerequisites
 
