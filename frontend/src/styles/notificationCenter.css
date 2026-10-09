@@ -1,0 +1,291 @@
+/*
+ * CHANGED: the bell is no longer fixed to the viewport corner (that put it on
+ * top of the Logout button). It is now a normal inline element that sits
+ * inside the page header, and the panel is anchored to it.
+ */
+.notification-center {
+  position: relative;
+  z-index: 1000;
+  flex: 0 0 auto;
+  pointer-events: auto;
+}
+
+.notification-bell {
+  position: relative;
+  z-index: 100000;
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+  color: #cbd5e1;
+  background: rgba(17, 24, 39, 0.92);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.notification-bell:hover,
+.notification-bell-active {
+  border-color: rgba(139, 92, 246, 0.35);
+  color: #c4b5fd;
+  background: rgba(30, 41, 59, 0.96);
+}
+
+.notification-bell svg {
+  font-size: 18px;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  padding: 0 5px;
+  border: 2px solid #0f172a;
+  border-radius: 999px;
+  color: #fff;
+  background: #7c3aed;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.notification-panel {
+  position: absolute;
+  z-index: 100001;
+  top: 54px;
+  right: 0;
+  width: 380px;
+  max-width: calc(100vw - 24px);
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 18px;
+  background: #111827;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.notification-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px 18px 15px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.notification-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: #8b5cf6;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.notification-panel-header h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 17px;
+}
+
+.notification-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notification-header-actions button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  color: #64748b;
+  background: transparent;
+  cursor: pointer;
+}
+
+.notification-header-actions button:hover {
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.notification-list {
+  max-height: 470px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.notification-item:last-child {
+  border-bottom: 0;
+}
+
+.notification-item:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.notification-unread {
+  background: rgba(139, 92, 246, 0.035);
+}
+
+.notification-icon {
+  width: 35px;
+  height: 35px;
+  display: grid;
+  flex: 0 0 35px;
+  place-items: center;
+  border-radius: 10px;
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.09);
+}
+
+.notification-icon svg {
+  font-size: 15px;
+}
+
+.notification-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.notification-content p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.notification-content span {
+  display: block;
+  margin-top: 5px;
+  color: #475569;
+  font-size: 9px;
+}
+
+.notification-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.notification-unread-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8b5cf6;
+}
+
+.notification-item-actions button {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  color: #475569;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.15s ease;
+}
+
+.notification-item:hover
+.notification-item-actions button {
+  opacity: 1;
+}
+
+.notification-item-actions button:hover {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.07);
+}
+
+.notification-error {
+  margin: 10px 12px 0;
+  padding: 9px 10px;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 8px;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.05);
+  font-size: 10px;
+}
+
+.notification-state {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 30px;
+  color: #475569;
+  text-align: center;
+}
+
+.notification-state strong {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.notification-state > span {
+  max-width: 210px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.notification-empty-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  color: #a78bfa;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.notification-spinner {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+  border: 3px solid rgba(139, 92, 246, 0.15);
+  border-top-color: #8b5cf6;
+  border-radius: 50%;
+  animation: notification-spin 0.8s linear infinite;
+}
+
+@keyframes notification-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+ * CHANGED: on phones the bell is inside a header that may be anywhere on
+ * the row, so the panel is pinned to the screen edges instead of the bell.
+ */
+@media (max-width: 600px) {
+  .notification-panel {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
+  }
+}
